@@ -1,0 +1,831 @@
+/**
+ * CF7 Modern Enhancer - スタイル
+ * CF7 Wizard 管理画面
+ */
+
+/* ===== 1段目: ヘッダーエリア（常時表示・固定） ===== */
+.cf7me-wizard-wrap {
+    padding-top: 0;
+}
+
+.cf7me-wizard-wrap h1 {
+    margin-bottom: 0;
+    padding-bottom: 16px;
+}
+
+.cf7me-header-bar {
+    position: sticky;
+    top: 32px;
+    z-index: 10;
+    margin: 0 0 16px 0;
+    padding: 14px 20px;
+    background: #f0f6fc;
+    border: 1px solid #c3c4c7;
+    border-radius: 6px;
+}
+
+.cf7me-header-inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 16px;
+    align-items: center;
+    max-width: 1200px;
+}
+
+.cf7me-header-bar .cf7me-header-input {
+    flex: 2;
+    min-width: 180px;
+    max-width: 320px;
+}
+
+.cf7me-header-select {
+    flex: 1;
+    min-width: 160px;
+    max-width: 220px;
+}
+
+.cf7me-header-slug-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cf7me-header-slug {
+    flex: 0 0 140px;
+}
+
+.cf7me-slug-locked {
+    background: #f0f0f1 !important;
+    color: #646970;
+    cursor: not-allowed;
+}
+
+.cf7me-slug-note {
+    font-size: 12px;
+    color: #646970;
+    white-space: nowrap;
+}
+
+.cf7me-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-left: auto;
+    padding-left: 16px;
+}
+
+/* 既存フォーム選択が無い時の見た目 */
+.cf7me-header-bar .cf7me-select option:first-child {
+    color: #646970;
+}
+
+.cf7me-label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    font-size: 13px;
+    color: #1d2327;
+}
+
+
+.cf7me-input,
+.cf7me-select {
+    padding: 8px 12px;
+    border: 1px solid #8c8f94;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 1.4;
+    background: #fff;
+}
+
+.cf7me-input:focus,
+.cf7me-select:focus {
+    border-color: #2271b1;
+    box-shadow: 0 0 0 1px #2271b1;
+    outline: none;
+}
+
+
+.cf7me-save-btn {
+    padding: 8px 20px !important;
+    margin: 0 !important;
+    height: auto !important;
+    font-size: 14px !important;
+}
+
+.cf7me-save-msg {
+    font-size: 13px;
+    transition: opacity 0.2s;
+}
+
+.cf7me-save-msg-success {
+    color: #00a32a;
+}
+
+.cf7me-save-msg-error {
+    color: #d63638;
+}
+
+/* メイン・出力エリア */
+.cf7me-main { margin-top: 0; }
+.cf7me-panel-title {
+    margin: 0 0 12px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.cf7me-preview-label {
+    display: inline-block;
+    margin-right: 8px;
+    font-weight: 500;
+}
+
+/* ウィザード全体のレイアウト */
+.cf7me-wizard-layout {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+    font-family: sans-serif;
+}
+
+/* 左側：パーツ選択パネル */
+.cf7me-wizard-sidebar.parts-panel,
+.parts-panel {
+    flex: 1;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* 追加ボタン */
+.cf7me-add-btn,
+.part-button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 10px;
+    background: #f0f0f1;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.2s;
+}
+
+.cf7me-add-btn:hover,
+.part-button:hover {
+    border-color: #2271b1;
+    background: #e5f3ff;
+}
+
+/* 右側：プレビューパネル（設定済みパーツのリスト） */
+.cf7me-wizard-preview.preview-panel,
+.preview-panel {
+    flex: 2;
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    border: 2px dashed #c3c4c7;
+    min-height: 400px;
+}
+
+.preview-panel .cf7me-panel-title {
+    color: #646970;
+}
+
+.cf7me-preview-list {
+    margin-top: 12px;
+}
+
+/* プレビュー: 設定済みパーツのリスト（入力フォーム風ではない） */
+.cf7me-preview-item.cf7me-preview-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 16px;
+    margin-bottom: 8px;
+    background: #fff;
+    border-radius: 8px;
+    border: 1px solid #dcdcde;
+    border-left: 4px solid #2271b1;
+}
+
+.cf7me-preview-drag-handle {
+    flex-shrink: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 4px);
+    grid-template-rows: repeat(3, 4px);
+    gap: 2px;
+    padding: 6px;
+    cursor: grab;
+    color: #8c8f94;
+}
+
+.cf7me-preview-drag-handle:active {
+    cursor: grabbing;
+}
+
+.cf7me-drag-dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: currentColor;
+}
+
+.cf7me-preview-drag-handle:hover {
+    color: #2271b1;
+}
+
+/* SortableJS アニメーション */
+.cf7me-sortable-ghost {
+    opacity: 0.4;
+    background: #f0f0f1;
+}
+
+.cf7me-sortable-chosen {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.cf7me-sortable-drag {
+    opacity: 1;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.cf7me-preview-item:hover {
+    border-color: #c3c4c7;
+}
+
+.cf7me-preview-item-body {
+    flex: 1;
+    min-width: 0;
+}
+
+.cf7me-preview-item-label-wrap {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 6px 12px;
+}
+
+.cf7me-preview-item-label {
+    font-size: 15px;
+    font-weight: 600;
+    color: #1d2327;
+}
+
+.cf7me-preview-item-slug {
+    font-size: 12px;
+    color: #646970;
+    font-family: monospace;
+}
+
+.cf7me-required-mark {
+    color: #d63638;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.cf7me-preview-item-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 8px;
+}
+
+.cf7me-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    font-size: 11px;
+    font-weight: 500;
+    border-radius: 4px;
+}
+
+.cf7me-badge-type {
+    background: #e5f3ff;
+    color: #2271b1;
+    border: 1px solid #72aee6;
+}
+
+.cf7me-badge-class {
+    background: #e5f3ff;
+    color: #2271b1;
+    border: 1px solid #72aee6;
+    font-family: monospace;
+}
+
+.cf7me-badge-required {
+    background: #fce8e8;
+    color: #d63638;
+    border: 1px solid #d63638;
+}
+
+.cf7me-preview-item-actions {
+    display: flex;
+    gap: 6px;
+    flex-shrink: 0;
+    opacity: 0.5;
+    transition: opacity 0.2s;
+}
+
+.cf7me-preview-item:hover .cf7me-preview-item-actions {
+    opacity: 1;
+}
+
+.cf7me-preview-del,
+.cf7me-preview-edit {
+    flex-shrink: 0;
+}
+
+.cf7me-preview-del {
+    color: #d63638;
+}
+
+.cf7me-preview-del:hover,
+.cf7me-preview-edit:hover {
+    opacity: 1;
+}
+
+.cf7me-sidebar-btns {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.cf7me-preview-tag {
+    font-size: 12px;
+    color: #646970;
+}
+
+.cf7me-preview-empty {
+    color: #646970;
+    font-style: italic;
+    margin-top: 20px;
+}
+
+/* 出力エリア */
+.cf7me-output,
+.cf7me-wizard-output {
+    margin-top: 24px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+.cf7me-wizard-output h3 {
+    margin-bottom: 8px;
+}
+
+.cf7me-cf7-output {
+    width: 100%;
+    min-height: 120px;
+    padding: 12px;
+    font-family: monospace;
+    font-size: 13px;
+    border: 1px solid #8c8f94;
+    border-radius: 4px;
+    background: #f6f7f7;
+}
+
+/* 詳細設定モーダル */
+.cf7me-modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 100000;
+    align-items: center;
+    justify-content: center;
+}
+
+.cf7me-modal-overlay.cf7me-modal-visible {
+    display: flex;
+}
+
+.cf7me-modal {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+    max-width: 480px;
+    width: 90%;
+}
+
+.cf7me-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    border-bottom: 1px solid #dcdcde;
+}
+
+.cf7me-modal-header h3 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.cf7me-modal-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+    color: #646970;
+    padding: 0 4px;
+}
+
+.cf7me-modal-close:hover {
+    color: #1d2327;
+}
+
+.cf7me-modal-body {
+    padding: 20px;
+}
+
+.cf7me-modal-row {
+    margin-bottom: 16px;
+}
+
+.cf7me-modal-row:last-child {
+    margin-bottom: 0;
+}
+
+.cf7me-check-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.cf7me-check-label input {
+    margin-right: 8px;
+}
+
+.cf7me-modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    padding: 16px 20px;
+    border-top: 1px solid #dcdcde;
+}
+
+/* ===== 2段目: タブバー（境界で区切り） ===== */
+.cf7me-tab-bar {
+    display: flex;
+    gap: 4px;
+    padding: 16px 0 0;
+    margin-bottom: 0;
+    border-bottom: 1px solid #dcdcde;
+}
+
+.cf7me-tab {
+    padding: 10px 18px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    color: #646970;
+    border-radius: 0;
+}
+
+.cf7me-tab:hover {
+    color: #1d2327;
+}
+
+.cf7me-tab.cf7me-tab-active {
+    color: #2271b1;
+    border-bottom-color: #2271b1;
+}
+
+/* ===== 3段目: 編集エリア（タブ内容） ===== */
+.cf7me-edit-area {
+    padding: 24px 0;
+}
+
+.cf7me-form-tab,
+.cf7me-mail-pane,
+.cf7me-confirm-pane {
+    padding: 20px;
+}
+
+.cf7me-pane {
+    display: none;
+}
+
+.cf7me-pane.cf7me-pane-active {
+    display: block;
+}
+
+/* メール設定タブ */
+.cf7me-mail-section {
+    margin-bottom: 24px;
+    padding: 24px;
+    background: #fff;
+    border: 1px solid #c3c4c7;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.04);
+}
+
+.cf7me-mail-section:last-child {
+    margin-bottom: 0;
+}
+
+.cf7me-mail-row {
+    margin-bottom: 16px;
+}
+
+.cf7me-mail-row:last-child {
+    margin-bottom: 0;
+}
+
+/* 本文行: テキストエリア＋タグボタン（縦積み） */
+.cf7me-mail-row-body {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.cf7me-body-wrap {
+    width: 100%;
+}
+
+.cf7me-body-wrap .cf7me-textarea {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.cf7me-textarea {
+    resize: vertical;
+    min-height: 300px;
+    padding: 12px;
+}
+
+.cf7me-tags-wrap {
+    width: 100%;
+    max-width: 100%;
+}
+
+.cf7me-tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 8px;
+    background: #f6f7f7;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+.cf7me-tag-label {
+    width: 100%;
+    margin-bottom: 4px;
+    font-weight: 600;
+    color: #1d2327;
+}
+
+.cf7me-tag-hint {
+    color: #646970;
+    font-style: italic;
+}
+
+.cf7me-tag-btn {
+    padding: 4px 8px;
+    background: #fff;
+    border: 1px solid #8c8f94;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: monospace;
+    font-size: 11px;
+}
+
+.cf7me-tag-btn:hover {
+    border-color: #2271b1;
+    color: #2271b1;
+}
+
+/* メール設定：設定(60)＋プレビュー(40) 2カラム、プレビューはsticky（最終調整） */
+.cf7me-mail-with-preview {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.cf7me-mail-settings {
+    flex: 1 1 60%;
+    min-width: min(280px, 100%);
+}
+
+.cf7me-mail-preview-wrap {
+    flex: 0 1 40%;
+    min-width: 260px;
+    position: sticky;
+    top: 20px;
+    align-self: flex-start;
+}
+
+.cf7me-mail-preview {
+    padding: 16px;
+    background: #f8f9fa;
+    border: 1px solid #dcdcde;
+    border-radius: 6px;
+    font-size: 13px;
+}
+
+.cf7me-preview-title {
+    margin: 0 0 12px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #646970;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.cf7me-preview-mail {
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.cf7me-preview-subject {
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #dcdcde;
+}
+
+.cf7me-preview-body {
+    line-height: 1.6;
+    white-space: pre-wrap;
+}
+
+.cf7me-template-btn {
+    margin-top: 8px;
+}
+
+.cf7me-mail-note {
+    margin: 0 0 16px;
+    padding: 10px 12px;
+    font-size: 12px;
+    color: #646970;
+    background: #f0f6fc;
+    border-left: 3px solid #2271b1;
+    border-radius: 0 4px 4px 0;
+}
+
+.cf7me-accordion {
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.cf7me-accordion-trigger {
+    display: block;
+    width: 100%;
+    padding: 10px 14px;
+    text-align: left;
+    font-size: 13px;
+    color: #2271b1;
+    background: #f6f7f7;
+    border: 1px solid #dcdcde;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.cf7me-accordion-trigger:hover {
+    background: #eee;
+}
+
+.cf7me-accordion-content {
+    display: none;
+    padding-top: 16px;
+}
+
+.cf7me-accordion-content.cf7me-accordion-open {
+    display: block;
+}
+
+.cf7me-headers-textarea {
+    min-height: 60px;
+    font-family: monospace;
+    font-size: 12px;
+}
+
+@media (max-width: 960px) {
+    .cf7me-mail-with-preview {
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+    .cf7me-mail-settings {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+    .cf7me-mail-preview-wrap {
+        flex: 1 1 100%;
+        min-width: auto;
+        max-width: 100%;
+        position: static;
+    }
+}
+
+/* 確認画面（フロントエンド） */
+.cf7me-confirm-wrap {
+    max-width: 640px;
+    margin: 2em auto;
+}
+
+.cf7me-confirm-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5em;
+}
+
+.cf7me-confirm-table th,
+.cf7me-confirm-table td {
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.cf7me-confirm-table th {
+    width: 35%;
+    background: #f9f9f9;
+    font-weight: 600;
+}
+
+.cf7me-confirm-table td {
+    word-break: break-word;
+}
+
+.cf7me-confirm-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.cf7me-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1em;
+    text-decoration: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.cf7me-btn-back {
+    background: #f0f0f1;
+    color: #2c3338;
+    border: 1px solid #c3c4c7;
+}
+
+.cf7me-btn-back:hover {
+    background: #e2e2e2;
+}
+
+.cf7me-btn-submit {
+    background: #2271b1;
+    color: #fff;
+    border: 1px solid #2271b1;
+}
+
+.cf7me-btn-submit:hover {
+    background: #135e96;
+}
+
+/* ウィザード: 確認・完了設定タブ */
+.cf7me-confirm-pane {
+    display: none;
+}
+
+.cf7me-confirm-pane.cf7me-pane-active {
+    display: block;
+}
+
+.cf7me-confirm-section {
+    margin-bottom: 24px;
+}
+
+.cf7me-confirm-section:last-child {
+    margin-bottom: 0;
+}
+
+.cf7me-confirm-row {
+    margin-top: 12px;
+}
+
+.cf7me-select-pages {
+    min-width: 220px;
+}
+
+.cf7me-label-inline {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+}
+
+.cf7me-checkbox {
+    margin: 0;
+}
